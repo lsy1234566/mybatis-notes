@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.ibatis.demo.mapper.BlogMapper">
+  <cache eviction="FIFO"
+         flushInterval="60000"
+         size="512"
+         readOnly="true"></cache>
+
+  <select id="selectBlog" resultType="org.apache.ibatis.demo.model.Blog">
+    select * from Blog where id = #{id}
+  </select>
+</mapper>
